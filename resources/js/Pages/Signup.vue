@@ -73,6 +73,7 @@ import { reactive } from "vue";
 import { ref } from "vue";
 import NavBar from "@/Shared/NavBar.vue";
 import { Inertia } from "@inertiajs/inertia";
+
 const form = reactive({
     name: "",
     email: "",
@@ -84,7 +85,7 @@ defineProps({
    
 })
 let submit = ()=>{
-    Inertia.post('/users',form);
+    Inertia.post(route('register.user'),form);
 }
 </script>
 

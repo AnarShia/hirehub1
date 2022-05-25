@@ -1,162 +1,50 @@
 <template>
     <NavBar />
-    
-    <form @submit="login">
-        <div class="asdf">
-            <td>
-                <div class="Employee">
-                    <button
-                        @click="prevent"
-                        name="submit"
-                        class="action_btn Employee"
-                        type="submit"
-                        value="Employee"
-                    >
-                        Employee
-                    </button>
-                </div>
-            </td>
-            <td>
-                <div class="Company">
-                    <button
-                        name="submit"
-                        class="action_btn Company"
-                        type="submit"
-                        value="Companies"
-                        @click="$router.push('logincompany')"
-                    >
-                        Company
-                    </button>
-                </div>
-            </td>
-        </div>
-        <h3 style="margin-left: 10px">Login to Hirehub</h3>
+    <div class="block p-6 rounded-lg shadow-lg bg-white">
+        <form @submit.prevent="submit" class="max-w-md mx-auto mt-7">
+            <div class="form-group mb-6">
+                <input
+                    v-model="form.email"
+                    type="email"
+                    class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    placeholder="Email address"
+                    required
+                />
+            </div>
+            <div class="form-group mb-6">
+                <input
+                    v-model="form.password"
+                    type="password"
+                    class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    placeholder="Password"
+                    required
+                />
+            </div>
 
-        <div class="input">
-            <input
-                type="email"
-                id="email"
-                onblur="this.placeholder = 'Enter your E-mail'"
-                placeholder="Enter your E-mail"
-                v-model="user.email"
-                required
-            />
-        </div>
-        <div class="input">
-            <input
-                type="password"
-                id="password"
-                onfocus="this.placeholder = ''"
-                onblur="this.placeholder = 'Enter your Password'"
-                placeholder="Enter your Password"
-                v-model="user.password"
-                required
-            />
-        </div>
-
-        <button type="submit" style="margin-left: 50px">Login</button>
-
-        <div class="err">
-            {{ errorMsg }}
-        </div>
-    </form>
+            <button
+                type="submit"
+                class="w-full px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+            >
+                login
+            </button>
+        </form>
+    </div>
 </template>
 
 <script setup>
+import { reactive } from "vue";
 import { ref } from "vue";
 import NavBar from "@/Shared/NavBar.vue";
-const user = {
-    name: "",
+import { Inertia } from "@inertiajs/inertia";
+
+const form = reactive({
     email: "",
     password: "",
-    password_confirmation: "",
-    country: "",
-    city: "",
+});
+defineProps({});
+let submit = () => {
+    Inertia.post(route("login.user"), form);
 };
 </script>
 
-<style lang="scss" scoped>
-form {
-    gap: 20px;
-    margin: 0 auto;
-    width: clamp(200px, 40%, 280px);
-    padding: 20px;
-    box-sizing: border-box;
-    box-shadow: 0px 14px 20px 12px #00000012;
-    border-radius: 8px;
-    .asdf {
-        border: none;
-        border-radius: 20px;
-        padding: 12px 12px;
-        background: #00000012;
-        .Employee {
-            border: none;
-            border-radius: 20px;
-            width: 100px;
-            padding: 2px 5px;
-            background-color: #00000012;
-            color: black;
-            text-align: center;
-        }
-        .Company {
-            border: none;
-            border-radius: 20px;
-            width: 100px;
-            padding: 2px 5px;
-            background-color: red;
-            color: black;
-        }
-    }
-    h3 {
-        font-size: 22px;
-        font-weight: 400;
-        margin: 0;
-    }
-    .input {
-        position: relative;
-        input {
-            border: 2px solid #232327;
-            border-radius: 8px;
-            background-color: #232327;
-            outline: none;
-            color: #bdbdbd;
-            padding: 10px 12px;
-            box-sizing: border-box;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            // &:focus,
-            // &:hover,
-            // &.filled {
-            //     border: 2px solid var(--info-color);
-            // }
-            // &:focus + .placeholder span,
-            // &.filled + .placeholder span {
-            //     transform: translateY(-100%);
-            // }
-        }
-        .placeholder {
-            position: absolute;
-            width: calc(100% - 24px);
-            top: 10px;
-            left: 12px;
-            pointer-events: none;
-            overflow: hidden;
-            span {
-                transition: all 0.3s ease;
-                font-size: 14px;
-            }
-        }
-    }
-    button {
-        border-radius: 20px;
-        padding: 10px 12px;
-        background-color: red;
-        color: white;
-    }
-    .err {
-        color: wheat;
-        font-size: 12px;
-        margin-top: 10px;
-    }
-}
-</style>
+<style></style>

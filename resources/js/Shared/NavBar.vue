@@ -18,8 +18,8 @@
                 <li v-if="username">
                     <Link href="/signup" class="link">Sign up</Link>
                 </li>
-                <li v-if="username">
-                    <Link href="/login" class="link">Login</Link>
+                <li >
+                    <Link :href="route('/')" class="link">Login</Link>
                 </li>
                 <li v-if="username">
                     <Link style="font-size: x-small" href="" class="link"
