@@ -36,6 +36,7 @@ import { reactive } from "vue";
 import { ref } from "vue";
 import NavBar from "@/Shared/NavBar.vue";
 import { Inertia } from "@inertiajs/inertia";
+import { Head } from "@inertiajs/inertia-vue3";
 
 const form = reactive({
     email: "",

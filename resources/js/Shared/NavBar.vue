@@ -19,18 +19,19 @@
                     <Link href="/signup" class="link">Sign up</Link>
                 </li>
                 <li >
-                    <Link :href="route('/')" class="link">Login</Link>
+                    <Link :href="route('loginPage')" class="link">Login</Link>
                 </li>
                 <li v-if="username">
                     <Link style="font-size: x-small" href="" class="link"
-                        >Welcome {{ username }}</Link
+                        >Welcome {{$page.props.auth.user.email}}</Link
+                        
                     >
                 </li>
             </ul>
             <Link
                 style="padding-top: 10px; color: red; font-size: 10px"
                 as="button"
-                >Log Out</Link
+                >Welcome {{name}}</Link
             >
         </nav>
     </header>
@@ -50,6 +51,7 @@ export default {
             username: "username",
             image: image,
             scrolledNav: false,
+            name:this.$page.props.auth.user.email,
         };
     },
 };

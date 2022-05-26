@@ -88,7 +88,8 @@ class AuthController extends Controller
 
         $user = Auth::user();
         $token = $user->createToken('main')->plainTextToken;
-        redirect('/');
+        
+        return redirect('/');
     }
     public function loginCompany(Request $request)
     { {

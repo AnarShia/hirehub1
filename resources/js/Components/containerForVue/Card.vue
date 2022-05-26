@@ -28,6 +28,7 @@
    
     <div class="Card__description">
        <h2>{{profileInfo.description}}</h2>
+       <h2>{{profileInfo.id}}</h2>
     </div>
     <div class="hire">
         <button :disabled="disableButton" >Hire</button>

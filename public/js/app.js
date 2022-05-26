@@ -21529,7 +21529,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ["profileInfo"]
+  props: ["profileInfo"],
+  data: function data() {
+    return {
+      profileInfo: this.profileInfo
+    };
+  },
+  methods: {
+    ananinaminekoyim: function ananinaminekoyim() {
+      console.log(this.profileInfo.id);
+    },
+    bunekoyim: function bunekoyim() {
+      console.log(this.profileInfo.description);
+    }
+  }
 });
 
 /***/ }),
@@ -21783,6 +21796,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var _Shared_NavBar_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Shared/NavBar.vue */ "./resources/js/Shared/NavBar.vue");
 /* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+
 
 
 
@@ -21808,7 +21823,8 @@ __webpack_require__.r(__webpack_exports__);
       reactive: vue__WEBPACK_IMPORTED_MODULE_0__.reactive,
       ref: vue__WEBPACK_IMPORTED_MODULE_0__.ref,
       NavBar: _Shared_NavBar_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-      Inertia: _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia
+      Inertia: _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia,
+      Head: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__.Head
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -21981,7 +21997,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       username: "username",
       image: _assets_images_logo_png__WEBPACK_IMPORTED_MODULE_1__["default"],
-      scrolledNav: false
+      scrolledNav: false,
+      name: this.$page.props.auth.user.email
     };
   }
 });
@@ -22057,6 +22074,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   )])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.profileInfo.description), 1
   /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.profileInfo.id), 1
+  /* TEXT */
   )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     disabled: _ctx.disableButton
   }, "Hire", 8
@@ -22117,26 +22136,29 @@ var _hoisted_8 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_9 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "hire"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", null, "Hire")], -1
-  /* HOISTED */
-  );
-});
-
+var _hoisted_9 = {
+  "class": "hire"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.profileInfo.title), 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.profileInfo.title), 1
   /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.profileInfo.nameSurname), 1
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.profileInfo.nameSurname), 1
   /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.profileInfo.salary) + "$", 1
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.profileInfo.salary) + "$", 1
   /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.profileInfo.duration), 1
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.profileInfo.duration), 1
   /* TEXT */
-  )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.profileInfo.description), 1
+  )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.profileInfo.description), 1
   /* TEXT */
-  )]), _hoisted_8, _hoisted_9]);
+  )]), _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[0] || (_cache[0] = function ($event) {
+      return $options.ananinaminekoyim();
+    })
+  }, "Hire"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[1] || (_cache[1] = function ($event) {
+      return $options.bunekoyim();
+    })
+  }, "what")])]);
 }
 
 /***/ }),
@@ -22806,9 +22828,6 @@ var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNod
 var _hoisted_10 = {
   key: 1
 };
-
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Log Out");
-
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
 
@@ -22862,7 +22881,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     /* STABLE */
 
   })])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
-    href: _ctx.route('/'),
+    href: _ctx.route('loginPage'),
     "class": "link"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -22881,7 +22900,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "link"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Welcome " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.username), 1
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Welcome " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.auth.user.email), 1
       /* TEXT */
       )];
     }),
@@ -22897,7 +22916,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     as: "button"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_11];
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Welcome " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.name), 1
+      /* TEXT */
+      )];
     }),
     _: 1
     /* STABLE */
@@ -23123,7 +23144,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.Card[data-v-1922daa4]{\r\n    padding: 5px 3px 5px 8px;\r\n    width: 400px;\r\n    margin: 10px;\r\n    \r\n    border: solid red;\r\n    border-width: 2px 4px 2px;\r\n    border-radius: 5px;\r\n    background-color: black;\r\n    display: inline-flex;\r\n    position: relative;\r\n    flex-direction: column;\r\n    font-size: 20px;\n}\n.Card__title[data-v-1922daa4]{\r\n        position: relative;\r\n    z-index: 1;\r\n    width: 100%;\r\n    max-width: 300px;\r\n    font-size: auto;\r\n    height: 20%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    color: white;\n}\n.Card__nameSurname[data-v-1922daa4]{\r\n    position: relative;\r\n    z-index: 1;\r\n    width: 100%;\r\n    max-width: 300px;\r\n    font-size: 15px;\r\n    height: 20%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    color: white;\n}\n.Card__salaryDuration[data-v-1922daa4]{\r\n    position: relative;\r\n    z-index: 1;\r\n    width: 100%;\r\n    height: 20%;\r\n    font-size: 16px;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    color: white;\n}\n.Card__salary[data-v-1922daa4]{\r\n    position: relative;\r\n    z-index: 1;\r\n    width: 50%;\r\n    height: 100%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    color: white;\n}\n.Card__duration[data-v-1922daa4]{\r\n    position: relative;\r\n    z-index: 1;\r\n    font-size: 12px;\r\n    width: 100%;\r\n    height: 20%;\r\n    display: flex;\r\n    position: relative;\r\n    top: 4px;\r\n    right : 10px;\r\n    justify-content: left;\r\n    align-items: center;\n}\n.Card__description[data-v-1922daa4]{\r\n    position: relative;\r\n    z-index: 1;\r\n    color: white;\r\n    width: 100%;\r\n    height: 60%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    font-size: 10px;\n}\n.Card__description h2[data-v-1922daa4]{\r\n    position: relative;\r\n    z-index: 1;\r\n    color: white;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    font-size: 10px;\n}\n.profile__Image[data-v-1922daa4]{\r\n    width: 100%;\r\n    \r\n    position: absolute;\r\n    \r\n    \r\n    z-index: 0;\n}\n.profile__Image img[data-v-1922daa4]{\r\n    width: 100px;\r\n    height: 100px;\r\n    border-radius: 50%;\r\n    filter: blur(1px);\r\n    filter: grayscale(0.7);\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n    position: absolute;\r\n    right: 8px;\r\n    top: -5px;\n}\n.hire[data-v-1922daa4]{\r\n    height: 100%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.hire button[data-v-1922daa4]{\r\n    width: 100px;\r\n    height: 30px;\r\n    border: 3px 5px 3px solid red;\r\n    border-radius: 5px;\r\n    background-color: black;\r\n    color: white;\r\n    font-size: 15px;\n}\n@media screen and (max-width: 425px){\n.Card[data-v-1922daa4]{\r\n        width: 300px;\n}\n.Card__duration[data-v-1922daa4]{\r\n        right: 0px;\n}\n}\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.Card[data-v-1922daa4] {\r\n    padding: 5px 3px 5px 8px;\r\n    width: 400px;\r\n    margin: 10px;\r\n\r\n    border: solid red;\r\n    border-width: 2px 4px 2px;\r\n    border-radius: 5px;\r\n    background-color: black;\r\n    display: inline-flex;\r\n    position: relative;\r\n    flex-direction: column;\r\n    font-size: 20px;\n}\n.Card__title[data-v-1922daa4] {\r\n    position: relative;\r\n    z-index: 1;\r\n    width: 100%;\r\n    max-width: 300px;\r\n    font-size: auto;\r\n    height: 20%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    color: white;\n}\n.Card__nameSurname[data-v-1922daa4] {\r\n    position: relative;\r\n    z-index: 1;\r\n    width: 100%;\r\n    max-width: 300px;\r\n    font-size: 15px;\r\n    height: 20%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    color: white;\n}\n.Card__salaryDuration[data-v-1922daa4] {\r\n    position: relative;\r\n    z-index: 1;\r\n    width: 100%;\r\n    height: 20%;\r\n    font-size: 16px;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    color: white;\n}\n.Card__salary[data-v-1922daa4] {\r\n    position: relative;\r\n    z-index: 1;\r\n    width: 50%;\r\n    height: 100%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    color: white;\n}\n.Card__duration[data-v-1922daa4] {\r\n    position: relative;\r\n    z-index: 1;\r\n    font-size: 12px;\r\n    width: 100%;\r\n    height: 20%;\r\n    display: flex;\r\n    position: relative;\r\n    top: 4px;\r\n    right: 10px;\r\n    justify-content: left;\r\n    align-items: center;\n}\n.Card__description[data-v-1922daa4] {\r\n    position: relative;\r\n    z-index: 1;\r\n    color: white;\r\n    width: 100%;\r\n    height: 60%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    font-size: 10px;\n}\n.Card__description h2[data-v-1922daa4] {\r\n    position: relative;\r\n    z-index: 1;\r\n    color: white;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    font-size: 10px;\n}\n.profile__Image[data-v-1922daa4] {\r\n    width: 100%;\r\n\r\n    position: absolute;\r\n\r\n    z-index: 0;\n}\n.profile__Image img[data-v-1922daa4] {\r\n    width: 100px;\r\n    height: 100px;\r\n    border-radius: 50%;\r\n    filter: blur(1px);\r\n    filter: grayscale(0.7);\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\r\n    position: absolute;\r\n    right: 8px;\r\n    top: -5px;\n}\n.hire[data-v-1922daa4] {\r\n    height: 100%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.hire button[data-v-1922daa4] {\r\n    width: 100px;\r\n    height: 30px;\r\n    border: 3px 5px 3px solid red;\r\n    border-radius: 5px;\r\n    background-color: black;\r\n    color: white;\r\n    font-size: 15px;\n}\n@media screen and (max-width: 425px) {\n.Card[data-v-1922daa4] {\r\n        width: 300px;\n}\n.Card__duration[data-v-1922daa4] {\r\n        right: 0px;\n}\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

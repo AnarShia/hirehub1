@@ -16,16 +16,16 @@ Route::controller(PostController::class)->group(function () {
 });
 
 Route::controller(NavBarController::class)->group(function () {
-    //Route::get('/', 'homePage')->name('homePage');
+    Route::get('/', 'homePage')->name('homePage');
     Route::get('/jobs', 'jobsPage')->name('jobsPage');
-    Route::get('/login', 'loginPage')->name('logpage');
+    Route::get('/login', 'loginPage')->name('loginPage');
     Route::get('/signup', 'signUpPage')->name('signupPage');
     Route::post('/logout', 'logoutPage')->name('logoutPage');
 });
 Route::controller(AuthController::class)->group(function () {
-    Route::get('/login', 'loginCompany')->name('login.company');
-    //Route::get('/login', 'login')->name('login.user');
-    Route::post('/register', 'registerCompany')->name('register.company');
+    Route::get('/login/company', 'loginCompany')->name('login.company');
+    Route::post('/login/user', 'login')->name('login.user');
+    Route::post('/register/company', 'registerCompany')->name('register.company');
     Route::post('/register', 'register')->name('register.user');
     Route::post('/logout', 'logout')->name('logout');
 });
