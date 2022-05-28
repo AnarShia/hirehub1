@@ -12,18 +12,20 @@
                     <Link href="/jobs" class="link">Jobs</Link>
                 </li>
                 <li>
-                    <Link href="/companies" class="link">Companies</Link>
+                    <Link href="/companies" class="link">
+                    
+                    Companies</Link>
                 </li>
-
-                <li v-if="username">
+                      
+                <li >
                     <Link href="/signup" class="link">Sign up</Link>
                 </li>
                 <li >
                     <Link :href="route('loginPage')" class="link">Login</Link>
                 </li>
-                <li v-if="username">
-                    <Link style="font-size: x-small" href="" class="link"
-                        >Welcome {{$page.props.auth.user.email}}</Link
+                <li>
+                    <Link style="font-size: x-small" method="post" :href="route('logout')" class="link"
+                        >Log out</Link
                         
                     >
                 </li>
@@ -31,7 +33,7 @@
             <Link
                 style="padding-top: 10px; color: red; font-size: 10px"
                 as="button"
-                >Welcome {{name}}</Link
+                >Welcome </Link
             >
         </nav>
     </header>
@@ -51,7 +53,7 @@ export default {
             username: "username",
             image: image,
             scrolledNav: false,
-            name:this.$page.props.auth.user.email,
+            
         };
     },
 };

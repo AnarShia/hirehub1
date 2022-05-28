@@ -43,6 +43,7 @@
                 </div>
 
                 <button
+                    :disabled="form.processing"
                     type="submit"
                     class="w-full px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
                 >
@@ -56,9 +57,9 @@
 <script setup>
 import { reactive } from "vue";
 import { Inertia } from "@inertiajs/inertia";
+import { useForm } from "@inertiajs/inertia-vue3";
 
-
-const form = reactive({
+const form = useForm({
     title: "",
     salary: "",
     duration: "",
@@ -69,7 +70,7 @@ defineProps({
     OpenPopUp: Boolean,
 });
 let submit = () => {
-    Inertia.post(route('companies.oksacposa'), form);
+    Inertia.post(route("companies.oksacposa"), form);
 };
 </script>
 <script>
