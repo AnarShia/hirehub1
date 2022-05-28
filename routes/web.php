@@ -29,3 +29,19 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/register', 'register')->name('register.user');
     Route::post('/logout', 'logout')->name('logout');
 });
+Route::controller()->group(function () {
+    Route::get('/login/Company',function (){
+        return inertia('Login/Login');
+    })->name('loginasCompany');
+
+    Route::get('/login/Employee',function (){
+        return inertia('Login/Login');
+    })->name('loginasEmployee');
+
+    Route::get('/register/Employee',function (){
+        return inertia('Register/Signup');
+    })->name('registerasEmployee');
+    Route::get('/register/Company',function (){
+        return inertia('Register/Signup');
+    })->name('registerasCompany');
+});

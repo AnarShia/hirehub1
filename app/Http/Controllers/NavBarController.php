@@ -22,7 +22,7 @@ class NavBarController extends Controller
     public function signUpPage()
     {
         
-        return Inertia::render('Signup');
+        return Inertia::render('Register/Signup');
     }
     public function logoutPage()
     {
@@ -32,6 +32,7 @@ class NavBarController extends Controller
     public function loginPage()
     {
         
-        return Inertia::render('Login');
+        return Inertia::render('Login/Login',[
+        ]);
     }
 }

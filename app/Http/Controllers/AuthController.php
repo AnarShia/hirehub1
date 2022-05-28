@@ -35,7 +35,7 @@ class AuthController extends Controller
             'country' => $data['country'],
             'city' => $data['city'],
         ]);
-        $token = $user->createToken('main')->plainTextToken;
+
 
         return redirect('/');
     }
@@ -47,7 +47,6 @@ class AuthController extends Controller
             'email' => 'required|email|string',
             'password' => [
                 'required',
-                'confirmed',
             ],
             'country' => 'required|string',
             'employees' => 'required|string',
@@ -61,9 +60,9 @@ class AuthController extends Controller
             'country' => $data['country'],
             'employees' => $data['employees'],
         ]);
-        $token = $company->createToken('main')->plainTextToken;
 
-      return redirect('/');
+
+        return redirect('/');
     }
 
 
@@ -87,8 +86,9 @@ class AuthController extends Controller
         /** @var \App\Models\User $user */
 
         $user = Auth::user();
-        $token = $user->createToken('main')->plainTextToken;
-        
+      
+
+
         return redirect('/');
     }
     public function loginCompany(Request $request)
@@ -98,8 +98,6 @@ class AuthController extends Controller
                 'password' => 'required',
                 'remember' => 'boolean'
             ]);
-            $remember = $credentials['remember'] ?? false;
-            unset($credentials['remember']);
 
             if (!Auth::guard('company')->attempt($credentials)) {
                 return response([
@@ -107,19 +105,23 @@ class AuthController extends Controller
                 ], 422);
             }
             /** @var \App\Models\company $company */
-
+            $request->session()->regenerate();
             $company = Auth::guard('company')->user();
-            
-           redirect('/');
+
+
+            return redirect('/company');
         }
     }
     public function logout()
     {
         /** @var User $user */
         $user = Auth::user();
-        // Revoke the token that was used to authenticate the current request...
-        // $user->currentAccessToken()->delete();
 
-        redirect('/');
+
+        Auth::guard('company')->logout();
+
+        Auth::logout();
+
+        return redirect()->route('homePage');
     }
 }
