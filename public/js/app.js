@@ -21829,7 +21829,7 @@ __webpack_require__.r(__webpack_exports__);
 
     var submit = function submit() {
       if (which == 'login/Company') {
-        _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia.post(route('login.company'), {
+        _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia.post(route('company.login'), {
           email: form.email,
           password: form.password
         });
@@ -21996,7 +21996,7 @@ __webpack_require__.r(__webpack_exports__);
 
     var submit = function submit() {
       if (which == 'register/Company') {
-        _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia.post(route('register.company'), {
+        _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia.post(route('company.register'), {
           email: form.email,
           password: form.password,
           password_confirmation: form.password_confirmation,

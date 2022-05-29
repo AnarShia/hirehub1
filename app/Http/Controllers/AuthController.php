@@ -87,31 +87,9 @@ class AuthController extends Controller
 
         $user = Auth::user();
       
-
-
         return redirect('/');
     }
-    public function loginCompany(Request $request)
-    { {
-            $credentials = $request->validate([
-                'email' => 'required|email|string',
-                'password' => 'required',
-                'remember' => 'boolean'
-            ]);
-
-            if (!Auth::guard('company')->attempt($credentials)) {
-                return response([
-                    'error' => 'The Provided credentials are not correct'
-                ], 422);
-            }
-            /** @var \App\Models\company $company */
-            $request->session()->regenerate();
-            $company = Auth::guard('company')->user();
-
-
-            return redirect('/company');
-        }
-    }
+   
     public function logout()
     {
         /** @var User $user */

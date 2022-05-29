@@ -23,9 +23,7 @@ Route::controller(NavBarController::class)->group(function () {
     Route::post('/logout', 'logoutPage')->name('logoutPage');
 });
 Route::controller(AuthController::class)->group(function () {
-    Route::get('/login/company', 'loginCompany')->name('login.company');
     Route::post('/login/user', 'login')->name('login.user');
-    Route::post('/register/company', 'registerCompany')->name('register.company');
     Route::post('/register', 'register')->name('register.user');
     Route::post('/logout', 'logout')->name('logout');
 });
@@ -45,3 +43,5 @@ Route::controller()->group(function () {
         return inertia('Register/Signup');
     })->name('registerasCompany');
 });
+
+require __DIR__.'/companyauth.php';

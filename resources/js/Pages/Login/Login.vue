@@ -63,7 +63,7 @@ let changewhich1 = () => {
 defineProps({});
 let submit = () => {
     if(which=='login/Company'){
-        Inertia.post(route('login.company'), {
+        Inertia.post(route('company.login'), {
             email: form.email,
             password: form.password,
         });

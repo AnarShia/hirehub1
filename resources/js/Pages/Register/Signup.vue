@@ -105,7 +105,7 @@ defineProps({
 });
 let submit = () => {
     if(which=='register/Company'){
-        Inertia.post(route('register.company'), {
+        Inertia.post(route('company.register'), {
             email: form.email,
             password: form.password,
             password_confirmation: form.password_confirmation,
