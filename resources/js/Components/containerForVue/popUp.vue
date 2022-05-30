@@ -57,9 +57,10 @@
 <script setup>
 import { reactive } from "vue";
 import { Inertia } from "@inertiajs/inertia";
-import { useForm } from "@inertiajs/inertia-vue3";
+import { useForm, usePage } from "@inertiajs/inertia-vue3";
 
 const form = useForm({
+    user_id: usePage().props.value.auth.company.id,
     title: "",
     salary: "",
     duration: "",
@@ -70,7 +71,7 @@ defineProps({
     OpenPopUp: Boolean,
 });
 let submit = () => {
-    Inertia.post(route("companies.oksacposa"), form);
+    Inertia.post(route("companies.store"), form);
 };
 </script>
 <script>

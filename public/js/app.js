@@ -21509,10 +21509,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _vue_runtime_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @vue/runtime-core */ "./node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js");
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["profileInfo"],
-  disableButton: true,
-  width: window.innerWidth
+  data: function data() {
+    return {
+      profileInfo: this.profileInfo
+    };
+  },
+  emits: ["shodid"],
+  setup: function setup() {
+    var user = (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_1__.computed)(function () {
+      return (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.value.auth.user;
+    });
+    var company = (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_1__.computed)(function () {
+      return (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.value.auth.company;
+    });
+    return {
+      user: user,
+      company: company
+    };
+  },
+  methods: {
+    shodid: function shodid() {
+      console.log(this.profileInfo.id);
+      this.$emit("shodid", this.profileInfo.id);
+    }
+  }
 });
 
 /***/ }),
@@ -21528,6 +21554,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _vue_runtime_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @vue/runtime-core */ "./node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js");
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["profileInfo"],
   data: function data() {
@@ -21535,12 +21567,29 @@ __webpack_require__.r(__webpack_exports__);
       profileInfo: this.profileInfo
     };
   },
+  setup: function setup() {
+    var user = (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_2__.computed)(function () {
+      return (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.value.auth.user;
+    });
+    var company = (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_2__.computed)(function () {
+      return (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.value.auth.company;
+    });
+    return {
+      user: user,
+      company: company
+    };
+  },
   methods: {
-    ananinaminekoyim: function ananinaminekoyim() {
-      console.log(this.profileInfo.id);
-    },
-    bunekoyim: function bunekoyim() {
-      console.log(this.profileInfo.description);
+    hireEmployee: function hireEmployee() {
+      console.log(this.profileInfo.user_id);
+      console.log(this.company.id);
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.post(route("hireme.store"), {
+        user_id: this.profileInfo.user_id,
+        company_id: this.company.id
+      });
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia["delete"](route("companies.destroy", {
+        id: this.profileInfo.id
+      }));
     }
   }
 });
@@ -21636,6 +21685,7 @@ var __default__ = {};
     var expose = _ref.expose;
     expose();
     var form = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.useForm)({
+      user_id: (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.value.auth.company.id,
       title: "",
       salary: "",
       duration: "",
@@ -21643,7 +21693,7 @@ var __default__ = {};
     });
 
     var submit = function submit() {
-      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.post(route("companies.oksacposa"), form);
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.post(route("companies.store"), form);
     };
 
     var __returned__ = {
@@ -21651,7 +21701,8 @@ var __default__ = {};
       submit: submit,
       reactive: vue__WEBPACK_IMPORTED_MODULE_0__.reactive,
       Inertia: _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia,
-      useForm: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.useForm
+      useForm: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.useForm,
+      usePage: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.usePage
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -22241,25 +22292,24 @@ var _hoisted_9 = {
 var _hoisted_10 = {
   "class": "hire"
 };
-var _hoisted_11 = ["disabled"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.profileInfo.title), 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.profileInfo.title), 1
   /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.profileInfo.nameSurname), 1
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.profileInfo.nameSurname), 1
   /* TEXT */
-  ), _hoisted_5]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.profileInfo.salary) + "$", 1
+  ), _hoisted_5]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.profileInfo.salary) + "$", 1
   /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.profileInfo.duration), 1
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.profileInfo.duration), 1
   /* TEXT */
-  )])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.profileInfo.description), 1
+  )])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.profileInfo.description), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.profileInfo.id), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.profileInfo.id), 1
   /* TEXT */
   )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    disabled: _ctx.disableButton
-  }, "Hire", 8
-  /* PROPS */
-  , _hoisted_11)])]);
+    onClick: _cache[0] || (_cache[0] = function ($event) {
+      return $options.shodid();
+    })
+  }, "Hire")])]);
 }
 
 /***/ }),
@@ -22316,6 +22366,7 @@ var _hoisted_8 = /*#__PURE__*/_withScopeId(function () {
 });
 
 var _hoisted_9 = {
+  key: 0,
   "class": "hire"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -22329,15 +22380,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.profileInfo.description), 1
   /* TEXT */
-  )]), _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  )]), _hoisted_8, $setup.company != undefined ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: _cache[0] || (_cache[0] = function ($event) {
-      return $options.ananinaminekoyim();
+      return $options.hireEmployee();
     })
-  }, "Hire"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    onClick: _cache[1] || (_cache[1] = function ($event) {
-      return $options.bunekoyim();
-    })
-  }, "what")])]);
+  }, "Hire")])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
 }
 
 /***/ }),
@@ -23604,7 +23651,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.Card[data-v-131eceec]{\r\n    padding: 5px 3px 5px 8px;\r\n    width: 400px;\r\n    margin: 10px;\r\n     border: solid red;\r\n    border-width: 2px 4px 2px;\r\n    border-radius: 5px;\r\n    background-color: black;\r\n    display: inline-flex;\r\n    position: relative;\r\n    flex-direction: column;\r\n    font-size: 20px;\n}\n.Card__title[data-v-131eceec]{\r\n        position: relative;\r\n    z-index: 1;\r\n    width: 100%;\r\n    height: 20%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    font-size: 18px;\n}\n.Card__nameSurname1[data-v-131eceec]{\r\n    position: relative;\r\n    z-index: 1;\r\n    width: 100%;\r\n    height: 100%;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-wrap: wrap;\r\n    font-size: 15px;\n}\n.Card__salaryDuration[data-v-131eceec]{\r\n    position: relative;\r\n    z-index: 1;\r\n    width: 100%;\r\n    height: 20%;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\n}\n.Card__salary[data-v-131eceec]{\r\n    position: relative;\r\n    z-index: 1;\r\n    width: 50%;\r\n    height: 100%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    font-size: 15px;\n}\n.Card__duration[data-v-131eceec]{\r\n    position: relative;\r\n    z-index: 1;\r\n    font-size: 12px;\r\n    width: 100%;\r\n    height: 20%;\r\n    display: flex;\r\n    position: relative;\r\n    top: 4px;\r\n    right : 10px;\r\n    justify-content: left;\r\n    align-items: center;\n}\n.Card__description[data-v-131eceec]{\r\n    position: relative;\r\n    z-index: 1;\r\n    color: white;\r\n    width: 100%;\r\n    height: 60%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    font-size: 10px;\n}\n.Card__description h2[data-v-131eceec]{\r\n    position: relative;\r\n    z-index: 1;\r\n    color: white;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    font-size: 10px;\n}\n.profile__Image[data-v-131eceec]{\r\n    width: 100%;\r\n    height: 100%;\r\n      display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.profile__Image img[data-v-131eceec]{\r\n    height: 200%;\r\n        border-radius: 50%;\r\n    background-color: #000;\r\n    filter: blur(1px);\r\n    filter: grayscale(0.7);\r\n    -o-object-fit: contain;\r\n       object-fit: contain;\n}\n.hire[data-v-131eceec]{\r\n    height: 100%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.hire button[data-v-131eceec]{\r\n    width: 100px;\r\n    height: 30px;\r\n    border: 3px 5px 3px solid red;\r\n    border-radius: 5px;\r\n    background-color: black;\r\n    color: white;\r\n    font-size: 15px;\n}\n@media screen and (max-width: 425px){\n.Card[data-v-131eceec]{\r\n        width: 300px;\n}\n.Card__duration[data-v-131eceec]{\r\n        right: 0px;\n}\n}\r\n\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.Card[data-v-131eceec] {\r\n    padding: 5px 3px 5px 8px;\r\n    width: 400px;\r\n    margin: 10px;\r\n    border: solid red;\r\n    border-width: 2px 4px 2px;\r\n    border-radius: 5px;\r\n    background-color: black;\r\n    display: inline-flex;\r\n    position: relative;\r\n    flex-direction: column;\r\n    font-size: 20px;\n}\n.Card__title[data-v-131eceec] {\r\n    position: relative;\r\n    z-index: 1;\r\n    width: 100%;\r\n    height: 20%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    font-size: 18px;\n}\n.Card__nameSurname1[data-v-131eceec] {\r\n    position: relative;\r\n    z-index: 1;\r\n    width: 100%;\r\n    height: 100%;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-wrap: wrap;\r\n    font-size: 15px;\n}\n.Card__salaryDuration[data-v-131eceec] {\r\n    position: relative;\r\n    z-index: 1;\r\n    width: 100%;\r\n    height: 20%;\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\n}\n.Card__salary[data-v-131eceec] {\r\n    position: relative;\r\n    z-index: 1;\r\n    width: 50%;\r\n    height: 100%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    font-size: 15px;\n}\n.Card__duration[data-v-131eceec] {\r\n    position: relative;\r\n    z-index: 1;\r\n    font-size: 12px;\r\n    width: 100%;\r\n    height: 20%;\r\n    display: flex;\r\n    position: relative;\r\n    top: 4px;\r\n    right: 10px;\r\n    justify-content: left;\r\n    align-items: center;\n}\n.Card__description[data-v-131eceec] {\r\n    position: relative;\r\n    z-index: 1;\r\n    color: white;\r\n    width: 100%;\r\n    height: 60%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    font-size: 10px;\n}\n.Card__description h2[data-v-131eceec] {\r\n    position: relative;\r\n    z-index: 1;\r\n    color: white;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    font-size: 10px;\n}\n.profile__Image[data-v-131eceec] {\r\n    width: 100%;\r\n    height: 100%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.profile__Image img[data-v-131eceec] {\r\n    height: 200%;\r\n    border-radius: 50%;\r\n    background-color: #000;\r\n    filter: blur(1px);\r\n    filter: grayscale(0.7);\r\n    -o-object-fit: contain;\r\n       object-fit: contain;\n}\n.hire[data-v-131eceec] {\r\n    height: 100%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\n}\n.hire button[data-v-131eceec] {\r\n    width: 100px;\r\n    height: 30px;\r\n    border: 3px 5px 3px solid red;\r\n    border-radius: 5px;\r\n    background-color: black;\r\n    color: white;\r\n    font-size: 15px;\n}\n@media screen and (max-width: 425px) {\n.Card[data-v-131eceec] {\r\n        width: 300px;\n}\n.Card__duration[data-v-131eceec] {\r\n        right: 0px;\n}\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

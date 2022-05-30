@@ -25,13 +25,17 @@
                 alt="cat"
             />
         </div>
-        <div class="hire">
-            <button @click="ananinaminekoyim()">Hire</button>
-            <button @click="bunekoyim()">what</button>
+        <div v-if="company != undefined" class="hire">
+            <button @click="hireEmployee()">Hire</button>
         </div>
     </div>
 </template>
 <script>
+import { computed } from "@vue/runtime-core";
+import { usePage } from "@inertiajs/inertia-vue3";
+import { Inertia } from "@inertiajs/inertia";
+
+
 export default {
     props: ["profileInfo"],
     data() {
@@ -39,12 +43,23 @@ export default {
             profileInfo: this.profileInfo,
         };
     },
+    
+    setup() {
+        const user = computed(() => usePage().props.value.auth.user);
+        const company = computed(() => usePage().props.value.auth.company);
+        return { user, company };
+    },
     methods: {
-        ananinaminekoyim() {
-            console.log(this.profileInfo.id);
-        },
-        bunekoyim() {
-            console.log(this.profileInfo.description);
+        hireEmployee() {
+            console.log(this.profileInfo.user_id);
+            console.log(this.company.id);
+            Inertia.post(route("hireme.store"), {
+                user_id: this.profileInfo.user_id,
+                company_id: this.company.id,
+            });
+            Inertia.delete(route("companies.destroy", {
+                id: this.profileInfo.id,
+            }));
         },
     },
 };

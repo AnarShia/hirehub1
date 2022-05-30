@@ -35,6 +35,7 @@ export default {
         NavBarVue,
         PopUp,
     },
+   
     data: function () {
         return {
             togglePopup: false,
@@ -49,6 +50,7 @@ export default {
     },
     props: {
         jobs: Array,
+        
     },
     methods: {
         openClosePopup: function () {
