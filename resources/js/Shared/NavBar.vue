@@ -12,48 +12,78 @@
                     <Link href="/jobs" class="link">Jobs</Link>
                 </li>
                 <li>
-                    <Link href="/companies" class="link">
+                    <Link href="/companies" class="link"> Companies</Link>
+                </li>
+
+                <li>
+                    <Link
+                        v-if="user==undefined &&company==undefined"
+                        href="/signup"
+                        class="link"
+                        >Sign up</Link
+                    >
+                </li>
+
+                <li>
+                    <Link
+                        v-if="user==undefined &&company==undefined"
+                        :href="route('loginPage')"
+                        class="link"
+                        >Login</Link
+                    >
                     
-                    Companies</Link>
-                </li>
-                      
-                <li >
-                    <Link href="/signup" class="link">Sign up</Link>
-                </li>
-                <li >
-                    <Link :href="route('loginPage')" class="link">Login</Link>
                 </li>
                 <li>
-                    <Link style="font-size: x-small" method="post" :href="route('logout')" class="link"
-                        >Log out</Link
+                    <Link
+                        v-if="company!=undefined"
+                        :href="route('homePage')"
+                        class="link"
+                        >{{company.name}}</Link
                         
+                    >
+                       <Link
+                        v-if="user!=undefined"
+                        :href="route('homePage')"
+                        class="link"
+                        >{{user.name}}</Link
+                        
+                    >
+                    
+                </li>
+                <li>
+                    <Link
+                       v-if="user!=undefined ||company!=undefined"
+                        style="font-size: x-small"
+                        method="post"
+                        as="button"
+                        :href="route('logout')"
+                        class="link"
+                        >Log out</Link
                     >
                 </li>
             </ul>
-            <Link
-                style="padding-top: 10px; color: red; font-size: 10px"
-                as="button"
-                >Welcome </Link
-            >
         </nav>
     </header>
 </template>
 
 <script>
-import { Link } from "@inertiajs/inertia-vue3";
+import { Link, usePage } from "@inertiajs/inertia-vue3";
 import image from "../assets/images/logo.png";
+import { computed } from '@vue/runtime-core';
 
 export default {
     components: {
         Link,
     },
-
+    setup() {
+        const user = computed(() => usePage().props.value.auth.user);
+        const company = computed(() => usePage().props.value.auth.company);
+        return { user, company };
+    },
     data() {
         return {
-            username: "username",
             image: image,
             scrolledNav: false,
-            
         };
     },
 };

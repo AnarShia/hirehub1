@@ -16,7 +16,7 @@
         </div>
     </div>
 
-    <button class="add-btn" @click="openClosePopup">New Post</button>
+    <button v-if="company!=undefined" class="add-btn" @click="openClosePopup">New Post</button>
 </template>
 
 <script>
@@ -25,6 +25,8 @@ import Card from "@/Components/containerForVue/Card.vue";
 import CardBig from "@/Components/containerForVue/CardBig.vue";
 import NavBarVue from "@/Shared/NavBar.vue";
 import PopUp from "@/Components/containerForVue/popUp.vue";
+import { computed } from "@vue/runtime-core";
+import { usePage } from "@inertiajs/inertia-vue3";
 export default {
     components: {
         Card,
@@ -36,9 +38,14 @@ export default {
     data: function () {
         return {
             togglePopup: false,
-            
+
             width: window.innerWidth,
         };
+    },
+    setup() {
+        const user = computed(() => usePage().props.value.auth.user);
+        const company = computed(() => usePage().props.value.auth.company);
+        return { user, company };
     },
     props: {
         jobs: Array,
