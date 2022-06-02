@@ -19,7 +19,7 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'title' =>$this->faker->randomElement(['Front-end', 'Back-end','Full-stack']),
+            'title' =>$this->faker->randomElement(['Front-end', 'Back-end','Full-stack','Mobile']),
             'salary' => $this->faker->randomElement(['10', '20', '30']),
             'description' => $this->faker->paragraph,
             'duration'=> $this->faker->randomElement(['1','2','3','4','5','6','7','8','9','10']), 

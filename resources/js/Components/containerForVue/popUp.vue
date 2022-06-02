@@ -2,21 +2,21 @@
     <div v-if="OpenPopUp" class="container">
         <div class="block p-6 rounded-lg shadow-lg bg-white">
             <form @submit.prevent="submit" class="max-w-md mx-auto mt-7">
-                <div class="form-group mb-6">
-                    <input
-                        v-model="form.title"
-                        type="text"
-                        class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                        aria-describedby="emailHelp123"
-                        placeholder="Job Title"
-                        required
-                    />
+                <div class="block p-6 rounded-lg shadow-lg bg-white m-6">
+                    <label class="p-2"  for="front">Front</label>
+                    <input type="radio" value="Front"  v-model="form.title" name="title" id="front">
+                    <label class="p-2" for="back">Back</label>
+                    <input type="radio" value="Back" v-model="form.title" name="title" id="back">
+                      <label class="p-2" for="fullstack">Full Stack</label>
+                    <input type="radio"  value="fs" v-model="form.title" name="title" id="fullstack">
+                     <label class="p-2" for="mobile">Mobile</label>
+                    <input type="radio"  value="mobile" v-model="form.title" name="title" id="mobile">
                 </div>
 
                 <div class="form-group mb-6">
                     <input
                         v-model="form.salary"
-                        type="email"
+                        type="number"
                         class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                         placeholder="Expected Salary"
                         required
@@ -25,16 +25,16 @@
                 <div class="form-group mb-6">
                     <input
                         v-model="form.duration"
-                        type="password"
+                        type="number"
                         class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                        placeholder="Duration"
+                        placeholder="Duration(Days)"
                         required
                     />
                 </div>
                 <div class="form-group mb-6">
-                    <input
+                    <textarea
                         v-model="form.description"
-                        type="text"
+                        type="textarea"
                         class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                         aria-describedby="emailHelp123"
                         placeholder="Description"
