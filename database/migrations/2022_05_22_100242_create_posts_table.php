@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('title')->nullable();
-            $table->string('salary')->nullable();
-            $table->string('duration')->nullable();
-            $table->string('description')->nullable();
+            $table->text('title')->nullable();
+            $table->text('salary')->nullable();
+            $table->text('duration')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

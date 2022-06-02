@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(\App\Models\company::class, 'company_id');
-            $table->string('project_title', 50);
-            $table->string('offered_salary', 10);
-            $table->string('start_date', 10);
-            $table->string('end_date', 10);
+            $table->text('project_title', 50);
+            $table->text('offered_salary', 10);
+            $table->text('start_date', 10);
+            $table->text('end_date', 10);
             $table->timestamps();
         });
     }
