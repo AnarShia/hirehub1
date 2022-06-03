@@ -62,9 +62,9 @@ export default {
 
 <style scoped>
 body {
-    position: absolute;
+    position: fixed;
     min-height: 100vh;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 }
 .add-btn {

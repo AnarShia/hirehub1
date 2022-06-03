@@ -9,7 +9,7 @@
                 <Link :class="{'font-bold':$page.url==='/register/Employee'}" class="Employee" :href="route('registerasEmployee')">Employee</Link>
             </td>
         </div>
-        <h3 style="margin-left: 10px">Register to Hirehub</h3>
+        <h3 style="margin-left: 13%">Register to Hirehub</h3>
 
         <div class="input">
             <input
@@ -70,7 +70,7 @@
         
         <button @click="changewhich1" v-if="$page.url=='/register/Company'" style="margin-left: 50px">Register Company</button>
         <button @click="changewhich" v-else-if="$page.url=='/register/Employee'" style="margin-left: 50px">Register Employee</button>
-        <button v-else style="margin-left: 50px">Register</button>
+        <button v-else style="margin-left: 35%">Register</button>
     </form>
 </template>
 <script setup>
@@ -132,18 +132,18 @@ let submit = () => {
 <style lang="scss" scoped>
 form {
     gap: 20px;
-    margin: 0 auto;
+    margin: 40px auto;
     width: clamp(200px, 40%, 280px);
     padding: 20px;
     box-sizing: border-box;
-    box-shadow: 0px 14px 20px 12px #00000012;
+    box-shadow: 0px 14px 20px 12px #c9f4e8;
     border-radius: 8px;
     .asdf {
         border: none;
         border-radius: 20px;
         padding: 12px 12px;
         display: flex;
-        background: #00000012;
+        background: #f8000012;
         justify-content: space-between;
         align-items: center;
         .Employee {
@@ -151,7 +151,7 @@ form {
             border-radius: 20px;
             width: 100px;  
             padding: 2px 5px;
-            background-color: #00000012;
+            background-color: #97cfd66a;
             color: black;
             text-align: center;
         }
@@ -160,14 +160,14 @@ form {
             border-radius: 20px;
             width: 100px;
             padding: 2px 5px;
-            background-color: #00000012;
+            background-color: #97cfd66a;
             color: black;
         }
     }
     h3 {
         font-size: 22px;
         font-weight: 400;
-        margin: 0;
+        margin: 10px;
     }
     .input {
         position: relative;
@@ -176,9 +176,10 @@ form {
             border-radius: 8px;
             background-color: #232327;
             outline: none;
-            color: #bdbdbd;
+            color: rgb(0, 183, 255);
             padding: 10px 12px;
-            margin: 8px;   
+            margin: 8px; 
+            margin-left: 13%;  
             box-sizing: border-box;
             font-size: 14px;
             transition: all 0.3s ease;
@@ -200,8 +201,9 @@ form {
   
     button {
         border-radius: 20px;
+        margin-left: 50%;
         padding: 10px 12px;
-        background-color: red;
+        background-color: rgb(0, 183, 255);
         color: white;
     }
     .err {
