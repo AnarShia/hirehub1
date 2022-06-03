@@ -9,7 +9,7 @@
                 <Link :class="{'font-bold':$page.url==='/login/Employee'}" class="Employee" :href="route('loginasEmployee')">Employee</Link>
             </td>
         </div>
-        <h3 style="margin-left: 10px">Login to Hirehub</h3>
+        <h3 style="margin-left: 17%">Login to Hirehub</h3>
 
         <div class="input">
             <input
@@ -33,7 +33,7 @@
 
         <button @click="changewhich1" v-if="$page.url=='/login/Company'" style="margin-left: 50px">Login Company</button>
         <button @click="changewhich" v-else-if="$page.url=='/login/Employee'" style="margin-left: 50px">Login Employee</button>
-        <button v-else style="margin-left: 50px">Login</button>
+        <button v-else style="margin-left: 38%">Login</button>
     </form>
 </template>
 <script setup>
@@ -81,18 +81,18 @@ let submit = () => {
 <style lang="scss" scoped>
 form {
     gap: 20px;
-    margin: 0 auto;
+    margin: 40px auto;
     width: clamp(200px, 40%, 280px);
     padding: 20px;
     box-sizing: border-box;
-    box-shadow: 0px 14px 20px 12px #00000012;
+    box-shadow: 0px 14px 20px 12px #c9f4e8;
     border-radius: 8px;
     .asdf {
         border: none;
         border-radius: 20px;
         padding: 12px 12px;
         display: flex;
-        background: #00000012;
+        background: #f8000012;
         justify-content: space-between;
         align-items: center;
         .Employee {
@@ -116,7 +116,7 @@ form {
     h3 {
         font-size: 22px;
         font-weight: 400;
-        margin: 0;
+        margin: 10px;
     }
     .input {
         position: relative;
@@ -127,7 +127,8 @@ form {
             outline: none;
             color: #bdbdbd;
             padding: 10px 12px;
-            margin: 8px;   
+            margin: 8px; 
+            margin-left: 13%;  
             box-sizing: border-box;
             font-size: 14px;
             transition: all 0.3s ease;
@@ -149,8 +150,9 @@ form {
   
     button {
         border-radius: 20px;
+        margin-left: 50%;
         padding: 10px 12px;
-        background-color: red;
+        background-color: rgb(0, 183, 255);
         color: white;
     }
     .err {

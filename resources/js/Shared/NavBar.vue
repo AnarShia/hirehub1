@@ -2,7 +2,8 @@
     <header :class="{ 'scrolled-nav': scrolledNav }">
         <nav>
             <div class="branding">
-                <img class="logo" :src="image" />
+                <a href="/"><img src="../assets/images/logo.png"></a>
+
             </div>
             <ul class="navigation">
                 <li>
@@ -95,7 +96,7 @@ export default {
     padding: 0;
 }
 header {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(255, 255, 255, 0.8);
     color: #fff;
     transition: 0.5s ease all;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
@@ -119,7 +120,7 @@ header {
         ul,
         .link {
             font-weight: 500;
-            color: #fff;
+            color: rgb(68, 127, 237);
             list-style: none;
             text-decoration: none;
         }
@@ -143,7 +144,7 @@ header {
             display: flex;
             align-items: center;
             img {
-                width: 50px;
+                width: 70px;
                 transition: 0.5s ease all;
             }
         }
